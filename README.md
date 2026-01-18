@@ -1,5 +1,6 @@
 # Global AI Job Market & Salary Insights (2025)
 Excel-Based Analysis & Interactive Dashboard
 ## Introduction
-This project analyzes the 2025 AI Job Market using a Kaggle dataset and presents insights through an interactive Excel dashboard combined with focused data analysis. The objective is to understand how AI job opportunities differ across countries, job roles, job types, and industries. 
-Users can filter the dashboard by job title, country, and job type, while key KPIs such as median salary, job count, and top hiring industry update dynamically. Beyond visualization, the project highlights salary–demand trade-offs, industry dominance, and geographic concentration in the AI job market.
+This project analyzes the global AI job market in 2025 using a structured dataset to uncover patterns in job demand, salary distribution, and industry concentration. It combines focused data analysis with an interactive dashboard that allows users to explore AI job opportunities across countries, roles, job types, and industries.
+
+Key KPIs—including median salary, job count, and top hiring industry—update dynamically based on user-selected filters. Beyond visualization, the analysis highlights salary–demand trade-offs, industry dominance, and geographic concentration within the global AI job market, supporting data-driven insights for career and business decision-making.
