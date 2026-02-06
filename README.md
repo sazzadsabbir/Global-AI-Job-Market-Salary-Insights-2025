@@ -1,9 +1,11 @@
 # Global AI Job Market & Salary Insights (2025)
 Excel-Based Analysis & Interactive Dashboard
 ## Introduction
-This project provides a comprehensive analysis of the global AI job market in 2025, exploring how demand, salaries, skills, and hiring trends vary across roles, countries, industries, and experience levels. Using a structured dataset and an interactive Excel dashboard, the analysis uncovers which AI roles are most in demand, which countries are experiencing the fastest growth, and which industries are leading AI talent acquisition.
-Key metrics—including median salary, job count, and top hiring industry—update dynamically as users apply filters for job title, job location, and job type in the interactive dashboard. The project also evaluates whether high job demand correlates with higher salaries, whether more skills lead to better pay, and how salary levels differ across global regions. Additionally, it examines how experience level affects both job availability and compensation, and identifies monthly hiring patterns to reveal peak recruitment periods in 2025.
-Overall, this dashboard enables data-driven insights for students, job seekers, policymakers, and business leaders looking to understand global AI workforce dynamics.
+This project analyzes the global AI job market in 2025, focusing on how job demand, salaries, skills, and hiring trends differ across roles, countries, industries, and experience levels. Using a structured dataset and an interactive Excel dashboard, it highlights the most in-demand AI roles, the fastest-growing regions, and the industries hiring the most professionals.
+The dashboard is fully interactive—median salary, job count, and top hiring industry update automatically based on selected job title, job location, and job type filters.
+
+The analysis also explores whether higher demand leads to higher pay, how skills influence salary, and how compensation varies across regions. It further examines the impact of experience level on both job availability and salary, and reveals monthly posting trends to identify peak hiring periods in 2025.
+Overall, the dashboard provides clear, data-driven insights for job seekers, students, policymakers, and business leaders wanting to understand global AI workforce trends.
 
 # Question to Analyze
 To understand the AI job market and salary insights, i asked the following questions:
