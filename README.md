@@ -20,7 +20,9 @@ To understand the AI job market and salary insights, i asked the following quest
 10. How do monthly job posting trends change throughout 2025, and which months show peak hiring activity?
 
 # Excel Skills Used 
-
+- Formula & Function
+- Charts
+- Data Validation
 
 
 
