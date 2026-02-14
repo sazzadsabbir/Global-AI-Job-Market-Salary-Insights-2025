@@ -1,7 +1,8 @@
 # Global AI Job Market & Salary Insights (2025)
 Excel-Based Analysis & Interactive Dashboard
 ## Introduction
-This project analyzes the global AI job market in 2025, focusing on how job demand, salaries, skills, and hiring trends differ across roles, countries, industries, and experience levels. Using a structured dataset and an interactive Excel dashboard, it highlights the most in-demand AI roles, the fastest-growing regions, and the industries hiring the most professionals. The dashboard is fully interactive—median salary, job count, and top hiring industry update automatically based on selected job title, job location, and job type filters. The analysis also explores whether higher demand leads to higher pay, how skills influence salary, and how compensation varies across regions. It further examines the impact of experience level on both job availability and salary, and reveals monthly posting trends to identify peak hiring periods in 2025. Overall, the dashboard provides clear, data-driven insights for job seekers, students, policymakers, and business leaders wanting to understand global AI workforce trends.
+This project analyzes the global AI job market in 2025, examining differences in job demand, salaries, skills, industries, countries, and experience levels. Using a structured dataset and an interactive Excel dashboard, it identifies the most in-demand AI roles, fastest-growing regions, and top hiring industries.
+The dashboard dynamically updates median salary, job count, and leading industry based on selected job title, location, and job type. The analysis also explores the relationship between demand and pay, the impact of skills on salary, regional compensation differences, experience-level effects, and monthly hiring trends in 2025.
 
 # Question to Analyze
 To understand the AI job market and salary insights, i asked the following questions:
