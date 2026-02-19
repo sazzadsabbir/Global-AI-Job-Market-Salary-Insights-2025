@@ -1,5 +1,6 @@
 # AI Job Market & Salary Trend Dashboard
-![Untitled design](https://github.com/user-attachments/assets/751f32f1-c5d3-4211-85cc-d960ee90fa21)
+![Untitled design](https://github.com/user-attachments/assets/ae751cac-d2b1-4dcd-aa3b-abb9fa5b36cc)
+
 
 
 ## Introduction 
