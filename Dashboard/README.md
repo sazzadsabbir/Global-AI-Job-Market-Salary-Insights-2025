@@ -13,4 +13,4 @@ The dashboard highlights three key performance indicators:
 Along with KPI cards, the dashboard includes visualizations of salary distributions, geographic hiring patterns, and job type breakdowns. Overall, this tool provides a clear, data‑driven view of how AI career opportunities and market demands are evolving, helping users benchmark salaries and make informed career decisions.
 
 ## Dashboard file 
-My final dashboard file:
+My final dashboard file: [AI Job Dashboard.xlsx](https://github.com/sazzadsabbir/Global-AI-Job-Market-Salary-Insights-2025/blob/main/Dashboard/AI%20Job%20Dashboard.xlsx)
