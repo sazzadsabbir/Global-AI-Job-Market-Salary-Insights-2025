@@ -14,3 +14,18 @@ Along with KPI cards, the dashboard includes visualizations of salary distributi
 
 ## Dashboard file 
 My final dashboard file: [AI Job Dashboard.xlsx](https://github.com/sazzadsabbir/Global-AI-Job-Market-Salary-Insights-2025/blob/main/Dashboard/AI%20Job%20Dashboard.xlsx)
+
+# Excel skills used:
+- 📊 Charts
+- 🔢 Formulas and Functions
+- 🛡️ Data Validation
+  
+## AI Job Market Dataset: 
+This project uses the Global AI Job Market & Salary Trends 2025 dataset, which contains over 15,000 AI, ML, and Data Science job postings collected from major global job platforms. The dataset includes detailed information on job titles, salaries, experience levels, skills, company attributes, and geographic patterns.
+For this dashboard, the following fields were used:
+
+- 💰 Salary (USD)
+- 🏭 Industry
+- 📌 Job Title
+- 📝 Employment Type
+- 🌍 Location
