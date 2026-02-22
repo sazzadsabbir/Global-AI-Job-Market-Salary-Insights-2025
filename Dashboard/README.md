@@ -59,7 +59,7 @@ Interactions with KPIs and charts:
 <img width="1608" height="392" alt="Filter_Panel" src="https://github.com/user-attachments/assets/ba9b1522-de60-4770-89a3-6f0cc965669d" />
 
 ### KPI Cards
-Primary KPIs: 
+#### Primary KPIs: 
 - 💰 Median Salary — robust against outliers; better than average for skewed pay distributions.
 - 🔢 Job Count — count of postings within current filter context.
 - 🏭 Top Industry — the most frequent industry under the active filters.
@@ -67,7 +67,7 @@ Primary KPIs:
 Why Median vs Average?
 - Salary data is typically right-skewed. Median reflects the central tendency more reliably.
 
-Formulas 
+#### Formulas 
 - Median Salarey (array formula):
 `=MEDIAN(
       IF((
@@ -93,6 +93,7 @@ Formulas
        (AI[Company Location]=Country),
        AI[Salary (USD) ]))`
 
+<img width="1663" height="485" alt="KPIs" src="https://github.com/user-attachments/assets/0aac0272-8795-499f-94bf-d8d893e7a9de" />
 
 
 
