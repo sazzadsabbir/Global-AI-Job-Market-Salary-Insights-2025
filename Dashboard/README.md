@@ -14,6 +14,8 @@ The dashboard highlights three key performance indicators:
 
 Along with KPI cards, the dashboard includes visualizations of salary distributions, geographic hiring patterns, and job type breakdowns. Overall, this tool provides a clear, data‑driven view of how AI career opportunities and market demands are evolving, helping users benchmark salaries and make informed career decisions.
 
+
+
 ## Dashboard file 
 My final dashboard file: [AI Job Dashboard.xlsx](https://github.com/sazzadsabbir/Global-AI-Job-Market-Salary-Insights-2025/blob/main/Dashboard/AI%20Job%20Dashboard.xlsx)
 
@@ -39,3 +41,30 @@ For this dashboard, the following fields were used:
 - Standardized Fields:
     - Changed the column's type to appropriate type.
     - Formatted the column's header.
+
+### Filters Used (Slicers)
+- 📌 Job Title
+- 📝 Employment Type
+- 🌍 Location
+
+### Why these filters?
+-	These three dimensions drive the most meaningful salary and demand segmentation for data roles without overwhelming users.
+- They directly impact on the KPIs (Median Salary, Job Count, Top Industry) and visuals (bar charts and maps), creating a tight feedback loop.
+
+### Interactions with KPIs and charts:
+- All KPIs and visuals recalculate based on current slicer selections.
+- The Median Salary updates using dynamic, multi-criteria arrays.
+- Job Count and Top Industry respond immediately to the active filter context.
+
+<img width="1608" height="392" alt="Filter_Panel" src="https://github.com/user-attachments/assets/ba9b1522-de60-4770-89a3-6f0cc965669d" />
+
+
+
+
+
+
+
+
+
+
+
