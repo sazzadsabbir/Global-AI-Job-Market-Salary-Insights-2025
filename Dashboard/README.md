@@ -31,3 +31,11 @@ For this dashboard, the following fields were used:
 - 📌 Job Title
 - 📝 Employment Type
 - 🌍 Location
+
+## Dashboard Build 
+### Data Preparation
+- Remove Duplicates: Based on job_id.
+- Handled Missing Value: Drooped missing value where salary(USD) = NULL / 0.
+- Standardized Fields:
+    - Changed the column's type to appropriate type.
+    - Formatted the column's header.
