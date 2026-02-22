@@ -19,7 +19,7 @@ Along with KPI cards, the dashboard includes visualizations of salary distributi
 ## Dashboard file 
 My final dashboard file: [AI Job Dashboard.xlsx](https://github.com/sazzadsabbir/Global-AI-Job-Market-Salary-Insights-2025/blob/main/Dashboard/AI%20Job%20Dashboard.xlsx)
 
-# Excel skills used:
+## Excel skills used:
 - 📊 Charts
 - 🔢 Formulas and Functions
 - 🛡️ Data Validation
