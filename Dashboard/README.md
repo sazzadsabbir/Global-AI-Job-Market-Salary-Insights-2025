@@ -47,18 +47,51 @@ For this dashboard, the following fields were used:
 - 📝 Employment Type
 - 🌍 Location
 
-### Why these filters?
+Why these filters?
 -	These three dimensions drive the most meaningful salary and demand segmentation for data roles without overwhelming users.
 - They directly impact on the KPIs (Median Salary, Job Count, Top Industry) and visuals (bar charts and maps), creating a tight feedback loop.
 
-### Interactions with KPIs and charts:
+Interactions with KPIs and charts:
 - All KPIs and visuals recalculate based on current slicer selections.
 - The Median Salary updates using dynamic, multi-criteria arrays.
 - Job Count and Top Industry respond immediately to the active filter context.
 
 <img width="1608" height="392" alt="Filter_Panel" src="https://github.com/user-attachments/assets/ba9b1522-de60-4770-89a3-6f0cc965669d" />
 
+### KPI Cards
+Primary KPIs: 
+- 💰 Median Salary — robust against outliers; better than average for skewed pay distributions.
+- 🔢 Job Count — count of postings within current filter context.
+- 🏭 Top Industry — the most frequent industry under the active filters.
 
+Why Median vs Average?
+- Salary data is typically right-skewed. Median reflects the central tendency more reliably.
+
+Formulas 
+- Median Salarey (array formula):
+`=MEDIAN(
+      IF((
+       AI[Job Title]=A2)*
+        (AI[Employment Type]=Type)*
+         (AI[Company Location]=Country),
+           AI[Salary (USD) ]))`
+
+
+- Job Count
+`=COUNT(
+     IF((
+         AI[Job Title]=A2)*
+           (AI[Employment Type]=Type)*
+            (AI[Company Location]=Country),
+             AI[Salary (USD) ]))`
+
+- Top Industry
+`=MEDIAN(
+      IF((AI[industry]=A2)*
+      (AI[Job Title]=Title)*
+      (AI[Employment Type]=Type)*
+       (AI[Company Location]=Country),
+       AI[Salary (USD) ]))`
 
 
 
