@@ -35,14 +35,14 @@ For this dashboard, the following fields were used:
 - 🌍 Location
 
 ## Dashboard Build 
-### Data Preparation
+### 📋Data Preparation
 - Remove Duplicates: Based on job_id.
 - Handled Missing Value: Drooped missing value where salary(USD) = NULL / 0.
 - Standardized Fields:
     - Changed the column's type to appropriate type.
     - Formatted the column's header.
 
-### Filters Used (Slicers)
+### 🎛️Filters Used (Slicers)
 - 📌 Job Title
 - 📝 Employment Type
 - 🌍 Location
@@ -58,7 +58,7 @@ Interactions with KPIs and charts:
 
 <img width="1608" height="392" alt="Filter_Panel" src="https://github.com/user-attachments/assets/ba9b1522-de60-4770-89a3-6f0cc965669d" />
 
-### KPI Cards
+### 📊KPI Cards
 #### Primary KPIs: 
 - 💰 Median Salary — robust against outliers; better than average for skewed pay distributions.
 - 🔢 Job Count — count of postings within current filter context.
@@ -94,6 +94,31 @@ Why Median vs Average?
        AI[Salary (USD) ]))`
 
 <img width="1663" height="485" alt="KPIs" src="https://github.com/user-attachments/assets/0aac0272-8795-499f-94bf-d8d893e7a9de" />
+
+### 📈Charts
+#### Median Salarey by Job Title (Bar Chart)
+<img width="546" height="365" alt="Median Salarey by Job Title" src="https://github.com/user-attachments/assets/7f3d5183-50a1-4a89-a620-7a1e34ebe3e2" />
+
+- 🛠️**Excel Features**:
+Used a horizontal bar chart with USD‑formatted labels, sorted in descending order for clarity.
+- 🎨**Design Choice**:
+Horizontal layout improves readability for long job titles and simplifies salary comparison.
+- 📉**Data Logic**:
+Median salary is calculated using dynamic multi‑criteria array formulas based on selected filters.
+- 💡**Insights**:
+Reveals the highest‑paying roles and makes cross‑title salary comparison straightforward.
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
