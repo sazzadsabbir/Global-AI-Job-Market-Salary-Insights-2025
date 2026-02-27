@@ -96,7 +96,7 @@ Why Median vs Average?
 <img width="1663" height="485" alt="KPIs" src="https://github.com/user-attachments/assets/0aac0272-8795-499f-94bf-d8d893e7a9de" />
 
 ### 📈Charts
-#### Median Salarey by Job Title (Bar Chart)
+### Median Salarey by Job Title (Bar Chart)
 <img width="546" height="365" alt="Median Salarey by Job Title" src="https://github.com/user-attachments/assets/7f3d5183-50a1-4a89-a620-7a1e34ebe3e2" />
 
 - 🛠️**Excel Features**:
@@ -119,7 +119,7 @@ Displays either median salary or job count by country, depending on the dashboar
 - 💡 **Insights**:
 Reveals geographic hotspots and shows where specific job titles and employment types are most in demand.
 
-### Median Salary by Employment Type
+### Median Salary by Employment Type (Bar Chart) 
 <img width="522" height="380" alt="employment_type" src="https://github.com/user-attachments/assets/5b0d91e7-93e9-401b-b7a2-44b91817836d" />
 
 
