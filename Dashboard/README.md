@@ -108,7 +108,7 @@ Median salary is calculated using dynamic multi‑criteria array formulas based 
 - 💡**Insights**:
 Reveals the highest‑paying roles and makes cross‑title salary comparison straightforward.
 
-### 🗺️ Median Salary by Location (Map Chart)
+###  Median Salary by Location (Map Chart)
 ![Map_Chart](https://github.com/user-attachments/assets/1bda4812-a7e9-47ce-a7ab-9b12fbcac6c2)
 - 🛠️ **Excel Features**:
 Used a filled map chart with color gradients, a country‑level helper table, and standardized country names for accurate mapping.
@@ -120,8 +120,12 @@ Displays either median salary or job count by country, depending on the dashboar
 Reveals geographic hotspots and shows where specific job titles and employment types are most in demand.
 
 ### Median Salary by Employment Type (Bar Chart) 
-<img width="522" height="380" alt="employment_type" src="https://github.com/user-attachments/assets/5b0d91e7-93e9-401b-b7a2-44b91817836d" />
+<img width="522" height="380" alt="employment_type" src="https://github.com/user-attachments/assets/5b0d91e7-93e9-401b-b7a2-44b91817836d" /> 
 
+- 🛠️Excel Features: Used a horizontal bar chart linked to dynamic ranges with USD‑formatted labels.
+- 🎨Design Choice: Horizontal layout ensures easy comparison between employment categories with clear readability.
+- 📉Data Logic: Median salary is computed using multi‑criteria formulas that update automatically with slicer filters.
+- 💡Insights: Clearly shows which employment types offer higher median salaries across the filtered dataset.
 
 
 
