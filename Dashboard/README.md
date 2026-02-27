@@ -47,11 +47,11 @@ For this dashboard, the following fields were used:
 - 📝 Employment Type
 - 🌍 Location
 
-Why these filters?
+#### Why these filters?
 -	These three dimensions drive the most meaningful salary and demand segmentation for data roles without overwhelming users.
 - They directly impact on the KPIs (Median Salary, Job Count, Top Industry) and visuals (bar charts and maps), creating a tight feedback loop.
 
-Interactions with KPIs and charts:
+#### Interactions with KPIs and charts:
 - All KPIs and visuals recalculate based on current slicer selections.
 - The Median Salary updates using dynamic, multi-criteria arrays.
 - Job Count and Top Industry respond immediately to the active filter context.
@@ -59,15 +59,15 @@ Interactions with KPIs and charts:
 <img width="1608" height="392" alt="Filter_Panel" src="https://github.com/user-attachments/assets/ba9b1522-de60-4770-89a3-6f0cc965669d" />
 
 ### 📊KPI Cards
-#### Primary KPIs: 
+### Primary KPIs: 
 - 💰 Median Salary — robust against outliers; better than average for skewed pay distributions.
 - 🔢 Job Count — count of postings within current filter context.
 - 🏭 Top Industry — the most frequent industry under the active filters.
 
-Why Median vs Average?
+### Why Median vs Average?
 - Salary data is typically right-skewed. Median reflects the central tendency more reliably.
 
-#### Formulas 
+### Formulas 
 - Median Salarey (array formula):
 `=MEDIAN(
       IF((
@@ -109,7 +109,7 @@ Median salary is calculated using dynamic multi‑criteria array formulas based 
 Reveals the highest‑paying roles and makes cross‑title salary comparison straightforward.
 
 ###  Median Salary by Location (Map Chart)
-![Map_Chart](https://github.com/user-attachments/assets/1bda4812-a7e9-47ce-a7ab-9b12fbcac6c2)
+(https://github.com/user-attachments/assets/1bda4812-a7e9-47ce-a7ab-9b12fbcac6c2)
 - 🛠️ **Excel Features**:
 Used a filled map chart with color gradients, a country‑level helper table, and standardized country names for accurate mapping.
 - 🎨 **Design Choice**:
