@@ -1,5 +1,6 @@
 # Global AI Job Market & Salary Dashboard
-![Dashboard_AI](https://github.com/user-attachments/assets/0b8e7ed6-b30f-4d1b-8b90-7445562fe1a3)
+![Final_Dashboard](https://github.com/user-attachments/assets/d380f851-7127-4478-a866-81cc8eb99455)
+
 
 ## 📘Introduction 
 An interactive Excel dashboard to analyze compensation, job availability, and industry demand across AI, ML, and Data roles. With slicers for Job Title, Employment Type, and Location, users can quickly explore market segments and extract insights. Primary KPIs : 
