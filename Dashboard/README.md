@@ -105,14 +105,15 @@ Reveals salary hotspots and regions with stronger demand.
 All formulas respect the slicer cells: Title (Job Title), Type (Employment Type), Country (Location).
 
 ### Median Salary (KPI & charts):
-Logic: Multi‑criteria IF filters salaries; MEDIAN returns robust central tendency.
-`=MEDIAN(
+- Logic: Multi‑criteria IF filters salaries; MEDIAN returns robust central tendency.
+- `=MEDIAN(
       IF((
        AI[Job Title]=A2)*
         (AI[Employment Type]=Type)*
          (AI[Company Location]=Country),
            AI[Salary (USD) ]))`
 
+<img width="312" height="457" alt="median_Table" src="https://github.com/user-attachments/assets/a6469e5a-8b7e-4002-9d9e-e27a7a4b851f" />
 
 
 ### Job Count (KPI)
@@ -124,6 +125,7 @@ Logic: Counts matched postings (cleaning already removed 0/NULL salaries).
             (AI[Company Location]=Country),
              AI[Salary (USD) ]))`
 
+<img width="286" height="462" alt="Count_Table" src="https://github.com/user-attachments/assets/1e3edda7-1f9e-41e4-a637-d7fc107574f0" />
 
 
 
@@ -141,21 +143,22 @@ The first row of the sorted result is used for Top Industry.
   `=SORT(FILTER(A2:B16,ISNUMBER(B2:B16)),2,-1)`
 
 
+<img width="567" height="395" alt="Industry_count" src="https://github.com/user-attachments/assets/8c2e485c-95f8-4b20-ab1f-bacf901ff02c" />
 
 
 ### Series Split for Conditional Highlighting (Charts)
-To highlight the top value in a bar chart without VBA, the data is split into two series using IF + NA():
-
+To highlight the top value in a bar chart , the data is split into two series using IF + NA(). Excel plots real numbers but ignores NA(), so the top bar appears in a different color while the rest stay in the base series.
 Highlight Series (Top‑1):
 `=IF(D2=MAX($D$2:$D$16),D2,NA())`
 
 - Base Series (Others):
 `=IF(D2<>MAX($D$2:$D$16),D2,NA())`
 
-Excel plots real numbers but ignores NA(), so the top bar appears in a different color while the rest stay in the base series.
+<img width="162" height="441" alt="Conditional_highlighting" src="https://github.com/user-attachments/assets/f24d56b1-b71e-4d3e-b83d-e05ce4c20cc1" />
 
 
-### ❎ 6) Data Validation (Dropdowns)
+
+### ❎ Data Validation (Dropdowns)
 Data validation was used to ensure clean and consistent filter inputs for Job Title, Employment Type, and Location.
 How it was done:
 
@@ -178,6 +181,7 @@ Why it matters:
 - Full‑time and Contract roles generally pay more than Part‑time or Freelance positions.
 - Top hiring industries vary by filter selection but commonly include Technology, Retail, Telecommunications, and Education, indicating strong demand across these sectors.
 
+### Conclusion 
 
 
 
