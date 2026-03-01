@@ -15,7 +15,7 @@ My final dashboard file: [AI Job Dashboard.xlsx](https://github.com/sazzadsabbir
 
 ## Excel Skills Used
 - 📊 Charts (Bar, Filled Map; conditional multi‑series highlighting)
-- 🔢 Dynamic Arrays (FILTER, UNIQUE, SORT, RANK.EQ, MODE, etc.)
+- 🔢 Dynamic Arrays (FILTER, UNIQUE, SORT)
 - 🧮 Multi‑criteria array formulas with IF + MEDIAN
 - 🛡️ Data Validation (clean dropdowns for slicer inputs)
 - 🧱 Helper/Calculation tables powering KPIs and visuals
@@ -33,14 +33,14 @@ Fields used in the dashboard:
 
 
 ## Dashboard Build
-### 📋Data Preparation
+### Data Preparation
 - Remove Duplicates: Based on job_id.
 - Handled Missing Value: Drooped missing value where salary(USD) = NULL / 0.
 - Standardized Fields:
     - Changed the column's type to appropriate type.
     - Formatted the column's header.
 
-### 🎛️Filters Used (Slicers)
+### Filters Used (Slicers)
 - 📌 Job Title
 - 📝 Employment Type
 - 🌍 Location
@@ -57,7 +57,7 @@ Fields used in the dashboard:
 <img width="1608" height="392" alt="Filter_Panel" src="https://github.com/user-attachments/assets/ba9b1522-de60-4770-89a3-6f0cc965669d" />
 
 
-### 📊KPI Cards
+### KPI Cards
 - 💰 Median Salary — robust against outliers; better than average for skewed pay distributions.
 - 🔢 Job Count — count of postings within current filter context.
 - 🏭 Top Industry — the most frequent industry under the active filters.
@@ -65,6 +65,65 @@ Fields used in the dashboard:
 ### Why Median vs Average?
 - Salary data is typically right-skewed. Median reflects the central tendency more reliably.
 <img width="1663" height="485" alt="KPIs" src="https://github.com/user-attachments/assets/0aac0272-8795-499f-94bf-d8d893e7a9de" />
+
+
+
+
+### Formulas & Calculation Tables
+All formulas respect the slicer cells: Title (Job Title), Type (Employment Type), Country (Location).
+
+### Median Salary (KPI & charts):
+- Logic: Multi‑criteria IF filters salaries; MEDIAN returns robust central tendency.
+- `=MEDIAN(
+      IF((
+       AI[Job Title]=A2)*
+        (AI[Employment Type]=Type)*
+         (AI[Company Location]=Country),
+           AI[Salary (USD) ]))`
+
+<img width="312" height="457" alt="median_Table" src="https://github.com/user-attachments/assets/a6469e5a-8b7e-4002-9d9e-e27a7a4b851f" />
+
+
+### Job Count (KPI)
+- Logic: Counts matched postings (cleaning already removed 0/NULL salaries).
+- `=COUNT(
+     IF((
+         AI[Job Title]=A2)*
+           (AI[Employment Type]=Type)*
+            (AI[Company Location]=Country),
+             AI[Salary (USD) ]))`
+
+<img width="286" height="462" alt="Count_Table" src="https://github.com/user-attachments/assets/1e3edda7-1f9e-41e4-a637-d7fc107574f0" />
+
+
+
+### Top Industry (KPI) — Median‑then‑Sort Approach
+- The first row of the sorted result is used for Top Industry.
+- Median by Industry (helper table)
+- `=MEDIAN(
+      IF((AI[industry]=A2)*
+      (AI[Job Title]=Title)*
+      (AI[Employment Type]=Type)*
+       (AI[Company Location]=Country),
+       AI[Salary (USD) ]))`
+  
+- Rank industries by median (remove errors, sort desc)
+  `=SORT(FILTER(A2:B16,ISNUMBER(B2:B16)),2,-1)`
+
+
+<img width="567" height="395" alt="Industry_count" src="https://github.com/user-attachments/assets/8c2e485c-95f8-4b20-ab1f-bacf901ff02c" />
+
+
+### Series Split for Conditional Highlighting (Charts)
+- To highlight the top value in a bar chart , the data is split into two series using IF + NA().
+- Excel plots real numbers but ignores NA(), so the top bar appears in a different color while the rest stay in the base series.
+- Highlight Series (Top‑1):
+`=IF(D2=MAX($D$2:$D$16),D2,NA())`
+
+- Base Series (Others):
+`=IF(D2<>MAX($D$2:$D$16),D2,NA())`
+
+<img width="162" height="441" alt="Conditional_highlighting" src="https://github.com/user-attachments/assets/f24d56b1-b71e-4d3e-b83d-e05ce4c20cc1" />
 
 ### 📈Charts
 ### Median Salarey by Job Title (Bar Chart)
@@ -100,73 +159,13 @@ Reveals salary hotspots and regions with stronger demand.
 - 💡Insights: Highlights how compensation varies by employment type.
 
 
-
-### 🧮 Formulas & Calculation Tables
-All formulas respect the slicer cells: Title (Job Title), Type (Employment Type), Country (Location).
-
-### Median Salary (KPI & charts):
-- Logic: Multi‑criteria IF filters salaries; MEDIAN returns robust central tendency.
-- `=MEDIAN(
-      IF((
-       AI[Job Title]=A2)*
-        (AI[Employment Type]=Type)*
-         (AI[Company Location]=Country),
-           AI[Salary (USD) ]))`
-
-<img width="312" height="457" alt="median_Table" src="https://github.com/user-attachments/assets/a6469e5a-8b7e-4002-9d9e-e27a7a4b851f" />
-
-
-### Job Count (KPI)
-Logic: Counts matched postings (cleaning already removed 0/NULL salaries).
-`=COUNT(
-     IF((
-         AI[Job Title]=A2)*
-           (AI[Employment Type]=Type)*
-            (AI[Company Location]=Country),
-             AI[Salary (USD) ]))`
-
-<img width="286" height="462" alt="Count_Table" src="https://github.com/user-attachments/assets/1e3edda7-1f9e-41e4-a637-d7fc107574f0" />
-
-
-
-### Top Industry (KPI) — Median‑then‑Sort Approach
-The first row of the sorted result is used for Top Industry.
-- Median by Industry (helper table)
-`=MEDIAN(
-      IF((AI[industry]=A2)*
-      (AI[Job Title]=Title)*
-      (AI[Employment Type]=Type)*
-       (AI[Company Location]=Country),
-       AI[Salary (USD) ]))`
-  
-- Rank industries by median (remove errors, sort desc)
-  `=SORT(FILTER(A2:B16,ISNUMBER(B2:B16)),2,-1)`
-
-
-<img width="567" height="395" alt="Industry_count" src="https://github.com/user-attachments/assets/8c2e485c-95f8-4b20-ab1f-bacf901ff02c" />
-
-
-### Series Split for Conditional Highlighting (Charts)
-To highlight the top value in a bar chart , the data is split into two series using IF + NA(). Excel plots real numbers but ignores NA(), so the top bar appears in a different color while the rest stay in the base series.
-Highlight Series (Top‑1):
-`=IF(D2=MAX($D$2:$D$16),D2,NA())`
-
-- Base Series (Others):
-`=IF(D2<>MAX($D$2:$D$16),D2,NA())`
-
-<img width="162" height="441" alt="Conditional_highlighting" src="https://github.com/user-attachments/assets/f24d56b1-b71e-4d3e-b83d-e05ce4c20cc1" />
-
-
-
 ### ❎ Data Validation (Dropdowns)
 Data validation was used to ensure clean and consistent filter inputs for Job Title, Employment Type, and Location.
 How it was done:
-
 - Created clean source lists using dynamic arrays:
   - =UNIQUE(AI[Job Title])
   - =SORT(UNIQUE(AI[Employment Type]))
   - =SORT(UNIQUE(AI[Company Location]))
-
 - Applied Data → Data Validation → List and linked each dropdown to its corresponding dynamic list.
 - Used FILTER where needed to remove blank or invalid entries.
 
@@ -182,7 +181,7 @@ Why it matters:
 - Top hiring industries vary by filter selection but commonly include Technology, Retail, Telecommunications, and Education, indicating strong demand across these sectors.
 
 ### Conclusion 
-
+This dashboard provides a clear, interactive view of AI job salaries, demand, and industry trends across roles, countries, and employment types—all powered by dynamic Excel formulas and clean data modeling. It offers a simple way to compare compensation and understand market patterns, making it useful for both job seekers and anyone analyzing AI talent trends.
 
 
 
