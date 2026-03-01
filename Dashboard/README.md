@@ -105,6 +105,7 @@ Reveals salary hotspots and regions with stronger demand.
 All formulas respect the slicer cells: Title (Job Title), Type (Employment Type), Country (Location).
 
 ### Median Salary (KPI & charts):
+Logic: Multi‑criteria IF filters salaries; MEDIAN returns robust central tendency.
 `=MEDIAN(
       IF((
        AI[Job Title]=A2)*
@@ -112,9 +113,10 @@ All formulas respect the slicer cells: Title (Job Title), Type (Employment Type)
          (AI[Company Location]=Country),
            AI[Salary (USD) ]))`
 
-Logic: Multi‑criteria IF filters salaries; MEDIAN returns robust central tendency.
+
 
 ### Job Count (KPI)
+Logic: Counts matched postings (cleaning already removed 0/NULL salaries).
 `=COUNT(
      IF((
          AI[Job Title]=A2)*
@@ -122,10 +124,11 @@ Logic: Multi‑criteria IF filters salaries; MEDIAN returns robust central tende
             (AI[Company Location]=Country),
              AI[Salary (USD) ]))`
 
-Logic: Counts matched postings (cleaning already removed 0/NULL salaries).
+
 
 
 ### Top Industry (KPI) — Median‑then‑Sort Approach
+The first row of the sorted result is used for Top Industry.
 - Median by Industry (helper table)
 `=MEDIAN(
       IF((AI[industry]=A2)*
@@ -136,7 +139,7 @@ Logic: Counts matched postings (cleaning already removed 0/NULL salaries).
   
 - Rank industries by median (remove errors, sort desc)
   `=SORT(FILTER(A2:B16,ISNUMBER(B2:B16)),2,-1)`
-The first row of the sorted result is used for Top Industry.
+
 
 
 
@@ -152,14 +155,14 @@ Highlight Series (Top‑1):
 Excel plots real numbers but ignores NA(), so the top bar appears in a different color while the rest stay in the base series.
 
 
-## ❎ 6) Data Validation (Dropdowns)
+### ❎ 6) Data Validation (Dropdowns)
 Data validation was used to ensure clean and consistent filter inputs for Job Title, Employment Type, and Location.
 How it was done:
 
 - Created clean source lists using dynamic arrays:
-1. =UNIQUE(AI[Job Title])
-2. =SORT(UNIQUE(AI[Employment Type]))
-3. =SORT(UNIQUE(AI[Company Location]))
+  - =UNIQUE(AI[Job Title])
+  - =SORT(UNIQUE(AI[Employment Type]))
+  - =SORT(UNIQUE(AI[Company Location]))
 
 - Applied Data → Data Validation → List and linked each dropdown to its corresponding dynamic list.
 - Used FILTER where needed to remove blank or invalid entries.
@@ -169,7 +172,7 @@ Why it matters:
 - Ensures formulas and slicers work correctly
 - Keeps the dashboard consistent and error‑free
 
-### Insights Summary
+### 💡Insights Summary
 - Engineering roles (AI/ML Engineer, Senior‑level positions) consistently show higher median salaries compared to Analyst and entry‑level roles.
 - High‑income regions such as the United States and Western Europe offer significantly higher compensation than emerging markets.
 - Full‑time and Contract roles generally pay more than Part‑time or Freelance positions.
