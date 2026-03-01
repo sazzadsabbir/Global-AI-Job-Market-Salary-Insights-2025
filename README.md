@@ -1,4 +1,4 @@
-# AI Job Market & Salary Trend Dashboard (Excel)
+# AI Job Market Dashboard 2025 (Excel)
 ![Dashboard_AI](https://github.com/user-attachments/assets/0b8e7ed6-b30f-4d1b-8b90-7445562fe1a3)
 
 ## 📘Introduction 
@@ -145,8 +145,7 @@ The first row of the sorted result is used for Top Industry.
 
 
 ### ⚡Conditional Highlighting
-- To highlight the top value in a bar chart , the data is split into two series using IF + NA().
-- Excel plots real numbers but ignores NA(), so the top bar appears in a different color while the rest stay in the base series.
+To highlight the top value in a bar chart , the data is split into two series using IF + NA(). Excel plots real numbers but ignores NA(), so the top bar appears in a different color while the rest stay in the base series.
 - Highlight Series (Top‑1):
 - `=IF(D2=MAX($D$2:$D$16),D2,NA())`
 
