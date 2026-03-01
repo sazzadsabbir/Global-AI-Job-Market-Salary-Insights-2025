@@ -1,21 +1,19 @@
-# AI Job Market & Salary Trend Dashboard ( Excel)
+# AI Job Market & Salary Trend Dashboard (Excel)
 ![Dashboard_AI](https://github.com/user-attachments/assets/0b8e7ed6-b30f-4d1b-8b90-7445562fe1a3)
 
 ## Introduction 
-An interactive Excel dashboard to analyze compensation, job availability, and industry demand across AI, ML, and Data roles. With slicers for Job Title, Employment Type, and Location, users can quickly explore market segments and extract insights.
-
-### Primary KPIs
+An interactive Excel dashboard to analyze compensation, job availability, and industry demand across AI, ML, and Data roles. With slicers for Job Title, Employment Type, and Location, users can quickly explore market segments and extract insights. Primary KPIs : 
 - Median Salary — Typical pay for the selected context (robust to outliers).
 - Job Count — Number of postings under active filters.
 - Top Industry — Most frequent hiring industry for the selection.
 
-## 🔎 Problem Statement
+## Problem Statement
 AI professionals and hiring teams need a single, reliable view of market compensation and demand by role, country, and employment type. This dashboard centralizes that view, enabling salary benchmarking, geographic comparison, and industry demand discovery—all inside Excel, without macros.
 
-## 📥 Download
+## Download
 My final dashboard file: [AI Job Dashboard.xlsx](https://github.com/sazzadsabbir/Global-AI-Job-Market-Salary-Insights-2025/blob/main/Dashboard/AI%20Job%20Dashboard.xlsx)
 
-## 🧰 Excel Skills Used
+## Excel Skills Used
 - 📊 Charts (Bar, Filled Map; conditional multi‑series highlighting)
 - 🔢 Dynamic Arrays (FILTER, UNIQUE, SORT, RANK.EQ, MODE, etc.)
 - 🧮 Multi‑criteria array formulas with IF + MEDIAN
@@ -23,7 +21,7 @@ My final dashboard file: [AI Job Dashboard.xlsx](https://github.com/sazzadsabbir
 - 🧱 Helper/Calculation tables powering KPIs and visuals
 
   
-## 🧾 Dataset
+## Dataset
 This project uses the Global AI Job Market & Salary Trends 2025 dataset (~15k postings).
 Fields used in the dashboard:
 
@@ -34,23 +32,7 @@ Fields used in the dashboard:
 - 🌍 Company Location (Country)
 
 
-## 🗂️ Project Folder Structure
-📦 Global-AI-Job-Market-Salary-Insights-2025
-├─ 📁 Dashboard/
-│  └─ AI Job Dashboard.xlsx
-├─ 📁 Images/
-│  ├─ dashboard_overview.png
-│  ├─ filters_panel.png
-│  ├─ kpis.png
-│  ├─ chart_job_title.png
-│  ├─ chart_location_map.png
-│  ├─ chart_employment_type.png
-│  ├─ sheet_location_calcs.png
-│  ├─ sheet_industry_calcs.png
-│  └─ data_validation_setup.png
-└─ README.md
-
-## 🧱 Dashboard Build
+## Dashboard Build
 ### 📋Data Preparation
 - Remove Duplicates: Based on job_id.
 - Handled Missing Value: Drooped missing value where salary(USD) = NULL / 0.
@@ -84,9 +66,43 @@ Fields used in the dashboard:
 - Salary data is typically right-skewed. Median reflects the central tendency more reliably.
 <img width="1663" height="485" alt="KPIs" src="https://github.com/user-attachments/assets/0aac0272-8795-499f-94bf-d8d893e7a9de" />
 
+### 📈Charts
+### Median Salarey by Job Title (Bar Chart)
+<img width="546" height="365" alt="Median Salarey by Job Title" src="https://github.com/user-attachments/assets/7f3d5183-50a1-4a89-a620-7a1e34ebe3e2" />
+
+- 🛠️**Excel Features**:
+Horizontal bar, USD data labels, sorted descending; conditional highlight via two series (= vs <> + NA()).
+- 🎨**Design Choice**:
+Horizontal layout improves readability for long titles and quick comparison.
+- 📉**Data Logic**:
+Median from multi‑criteria arrays; helper columns for highlight series.
+- 💡**Insights**:
+Quickly shows highest‑paying roles and relative differences.
+
+###  Median Salary by Location (Map Chart)
+![Map_Chart](https://github.com/user-attachments/assets/32c0df27-6e7c-4154-a7bb-ae2c7c449c42)
+
+- 🛠️ **Excel Features**:
+Filled map with color gradient; country helper table; standardized country names
+- 🎨 **Design Choice**:
+Immediate geographic context; darker shades for higher medians
+- 📉 **Data Logic**:
+ Plots median salary (or job count) at the country level.
+- 💡 **Insights**:
+Reveals salary hotspots and regions with stronger demand.
+
+### Median Salary by Employment Type (Bar Chart) 
+<img width="522" height="380" alt="employment_type" src="https://github.com/user-attachments/assets/5b0d91e7-93e9-401b-b7a2-44b91817836d" /> 
+
+- 🛠️Excel Features: Horizontal bar with dynamic ranges and USD labels; sorted descending, conditional highlight via two series (= vs <> + NA()).
+- 🎨Design Choice: Clear side‑by‑side comparison across Full‑time, Part‑time, Contract, Freelance, etc.
+- 📉Data Logic: Median via multi‑criteria arrays responding to slicers.
+- 💡Insights: Highlights how compensation varies by employment type.
+
+
+
 ### 🧮 Formulas & Calculation Tables
-All formulas respect the slicer cells:
-- Title (Job Title), Type (Employment Type), Country (Location)
+All formulas respect the slicer cells: Title (Job Title), Type (Employment Type), Country (Location).
 
 ### Median Salary (KPI & charts):
 `=MEDIAN(
@@ -108,8 +124,8 @@ Logic: Multi‑criteria IF filters salaries; MEDIAN returns robust central tende
 
 Logic: Counts matched postings (cleaning already removed 0/NULL salaries).
 
-### Top Industry (KPI) — Median‑then‑Sort Approach
 
+### Top Industry (KPI) — Median‑then‑Sort Approach
 - Median by Industry (helper table)
 `=MEDIAN(
       IF((AI[industry]=A2)*
@@ -120,68 +136,47 @@ Logic: Counts matched postings (cleaning already removed 0/NULL salaries).
   
 - Rank industries by median (remove errors, sort desc)
   `=SORT(FILTER(A2:B16,ISNUMBER(B2:B16)),2,-1)`
-
 The first row of the sorted result is used for Top Industry.
 
-image
 
--  Series Split for Conditional Highlighting (Charts)
-To highlight Top‑1 (or Top‑N) in bar charts without VBA, two series are created:
-Top‑1 Highlight
+
+### Series Split for Conditional Highlighting (Charts)
+To highlight the top value in a bar chart without VBA, the data is split into two series using IF + NA():
+
+Highlight Series (Top‑1):
 `=IF(D2=MAX($D$2:$D$16),D2,NA())`
-- Base (Others)
-`=IF(D2<>MAX($D$2:$D$16),D2,NA())`
-Excel treats NA() as gaps, so only the intended series plots (perfect for different bar colors).
 
-image
+- Base Series (Others):
+`=IF(D2<>MAX($D$2:$D$16),D2,NA())`
+
+Excel plots real numbers but ignores NA(), so the top bar appears in a different color while the rest stay in the base series.
+
 
 ## ❎ 6) Data Validation (Dropdowns)
-What & Why?
-- Dropdowns ensure consistent inputs for Job Title, Employment Type, and Location.
-- Prevents typos and keeps dynamic array formulas stable.
+Data validation was used to ensure clean and consistent filter inputs for Job Title, Employment Type, and Location.
+How it was done:
 
-Source lists (clean)
-=UNIQUE(AI[Job Title])
+- Created clean source lists using dynamic arrays:
+1. =UNIQUE(AI[Job Title])
+2. =SORT(UNIQUE(AI[Employment Type]))
+3. =SORT(UNIQUE(AI[Company Location]))
 
-=SORT(UNIQUE(AI[Employment Type]))
+- Applied Data → Data Validation → List and linked each dropdown to its corresponding dynamic list.
+- Used FILTER where needed to remove blank or invalid entries.
 
-=SORT(UNIQUE(AI[Company Location]))
+Why it matters:
+- Prevents typing errors
+- Ensures formulas and slicers work correctly
+- Keeps the dashboard consistent and error‑free
+
+### Insights Summary
+- Engineering roles (AI/ML Engineer, Senior‑level positions) consistently show higher median salaries compared to Analyst and entry‑level roles.
+- High‑income regions such as the United States and Western Europe offer significantly higher compensation than emerging markets.
+- Full‑time and Contract roles generally pay more than Part‑time or Freelance positions.
+- Top hiring industries vary by filter selection but commonly include Technology, Retail, Telecommunications, and Education, indicating strong demand across these sectors.
 
 
 
-
-### 📈Charts
-### Median Salarey by Job Title (Bar Chart)
-<img width="546" height="365" alt="Median Salarey by Job Title" src="https://github.com/user-attachments/assets/7f3d5183-50a1-4a89-a620-7a1e34ebe3e2" />
-
-- 🛠️**Excel Features**:
-Used a horizontal bar chart with USD‑formatted labels, sorted in descending order for clarity.
-- 🎨**Design Choice**:
-Horizontal layout improves readability for long job titles and simplifies salary comparison.
-- 📉**Data Logic**:
-Median salary is calculated using dynamic multi‑criteria array formulas based on selected filters.
-- 💡**Insights**:
-Reveals the highest‑paying roles and makes cross‑title salary comparison straightforward.
-
-###  Median Salary by Location (Map Chart)
-![Map_Chart](https://github.com/user-attachments/assets/32c0df27-6e7c-4154-a7bb-ae2c7c449c42)
-
-- 🛠️ **Excel Features**:
-Used a filled map chart with color gradients, a country‑level helper table, and standardized country names for accurate mapping.
-- 🎨 **Design Choice**:
-A map chart gives instant global context and makes high‑vs‑low salary regions easy to compare.
-- 📉 **Data Logic**:
-Displays either median salary or job count by country, depending on the dashboard configuration.
-- 💡 **Insights**:
-Reveals geographic hotspots and shows where specific job titles and employment types are most in demand.
-
-### Median Salary by Employment Type (Bar Chart) 
-<img width="522" height="380" alt="employment_type" src="https://github.com/user-attachments/assets/5b0d91e7-93e9-401b-b7a2-44b91817836d" /> 
-
-- 🛠️Excel Features: Used a horizontal bar chart linked to dynamic ranges with USD‑formatted labels.
-- 🎨Design Choice: Horizontal layout ensures easy comparison between employment categories with clear readability.
-- 📉Data Logic: Median salary is computed using multi‑criteria formulas that update automatically with slicer filters.
-- 💡Insights: Clearly shows which employment types offer higher median salaries across the filtered dataset.
 
 
 
